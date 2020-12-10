@@ -1,6 +1,6 @@
-<?php 
+<?php
 	include('config/connect.php');
-	
+
 	//write a query
 	$sql = 'SELECT dish,ingredients,id FROM dishes ORDER BY cat';
 
@@ -8,7 +8,14 @@
 	$result = mysqli_query($conn,$sql);
 
 	//fetch the resulting rows as an array
-	$dishes = mysqli_fetch_all($result,MYSQLI_ASSOC);
+	//$dishes = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+        //improved code
+        $dishes = array();
+        while($row = $result->fetch_assoc()){
+                $dishes[] = $row;
+        }
+        //improvement done
 
 	//free result variable from memory
 	mysqli_free_result($result);
@@ -44,5 +51,5 @@
 
  	</div>
  	<?php include('templates/footer.php'); ?>
- 
+
  </html>

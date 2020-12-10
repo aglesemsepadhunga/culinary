@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include('config/connect.php');
 
 	$email = $dish = $ingredients = '';
@@ -28,7 +28,7 @@
 		} else {
 			$ingredients=$_GET['ingredients'];
 			if(!(preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/',$ingredients)))
-				$errors['ingredients'] = 'Ingredients must be comma separated';	
+				$errors['ingredients'] = 'Ingredients must be comma separated';
 		}
 		//END OF CHECK
 		if(array_filter($errors)){
@@ -52,7 +52,7 @@
 				}
 
 
-				
+
 			}
 	}
  ?>
@@ -79,5 +79,5 @@
  		</form>
  	</section>
  	<?php include('templates/footer.php'); ?>
- 
+
  </html>
